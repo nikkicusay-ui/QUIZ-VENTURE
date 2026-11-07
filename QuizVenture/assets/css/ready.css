@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'PixelFont';
+    src: url('../img/PressStart2P-Regular.ttf') format('truetype');
+}
+
+body {
+    background-color: #2f2f7f;
+    font-family: 'PixelFont', monospace;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+@keyframes buildingBlink {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3); 
+    }
+}
+.building {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    animation: buildingBlink 2s ease-in-out infinite;
+}
+
+
+.title-area {
+    position: relative;
+    z-index: 5;
+    top: 30%;
+}
+
+.title-area h1 {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+
+.foreground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+@keyframes carIdle {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-3px); 
+    }
+}
+.car {
+    position: absolute;
+    margin-left: 560px;
+    bottom: 10px;
+    transform: translateX(-50%);
+    width: 100%; 
+    image-rendering: pixelated;
+    z-index: 4;
+    animation: carIdle 1.2s ease-in-out infinite;
+}
+
+.road {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.name-box {
+    background-color: #ab73e2;
+    background-image: 
+        linear-gradient(45deg, #a267dc 25%, transparent 25%),
+        linear-gradient(-45deg, #a267dc  25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #a267dc  75%),
+        linear-gradient(-45deg, transparent 75%, #a267dc  75%);
+    background-size: 80px 80px; /* bigger squares */
+    background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 6px 6px #34145c;
+    padding: 40px 60px;
+    text-align: center;
+    font-family: 'PixelFont', monospace;
+    font-size: 20px;
+    color: white;
+    width: 480px; 
+    margin: 0 auto; 
+}
+
+.name-box input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'PixelFont', monospace;
+    border: 5px solid #b4b3b3;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 90%;
+    margin-top: 10px;
+    color: #34145c;
+}
+
+.name-box input[type="submit"] {
+    position: center;
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-family: 'PixelFont', monospace;
+    font-size: 20px;
+    background: linear-gradient(#ffd93d, #f75c03);
+    color: #3d1f4d;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 4px 4px #34145c;
+    cursor: pointer;
+}
+.name-box input[type="submit"]:hover {
+    transform: translateY(-2px);
+    background: #ff9c00;
+}
+
+.ready-area {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+}
+
+.ready-area h1 {
+    font-size: 70px;
+    margin-bottom: 40px;
+    color: white;
+    font-family: 'PixelFont', monospace;
+}
